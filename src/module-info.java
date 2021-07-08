@@ -6,4 +6,5 @@ module EmailClient {
     requires javafx.web;
 
     opens com.jfdeveloper;
+    opens com.jfdeveloper.view;
 }
