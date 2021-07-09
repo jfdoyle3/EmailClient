@@ -7,4 +7,5 @@ module EmailClient {
 
     opens com.jfdeveloper;
     opens com.jfdeveloper.view;
+    opens com.jfdeveloper.controller;
 }
