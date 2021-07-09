@@ -23,7 +23,13 @@ public class ViewFactory {
         System.out.println("login window");
 
         BaseController controller = new LoginWindowController(emailManager, this, "LoginWindow.fxml");
+        initializeStage(controller);
+    }
 
+    public void showOptionsWindow(){
+        System.out.println("options window");
+
+        BaseController controller = new LoginWindowController(emailManager, this, "OptionsWindow.fxml");
         initializeStage(controller);
     }
 
@@ -31,7 +37,6 @@ public class ViewFactory {
         System.out.println("main window");
 
         BaseController controller = new MainWindowController(emailManager, this, "MainWindow.fxml");
-
         initializeStage(controller);
     }
 
