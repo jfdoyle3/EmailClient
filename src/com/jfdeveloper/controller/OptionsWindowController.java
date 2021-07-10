@@ -1,17 +1,23 @@
 package com.jfdeveloper.controller;
 
 import com.jfdeveloper.EmailManager;
+import com.jfdeveloper.view.ColorTheme;
 import com.jfdeveloper.view.ViewFactory;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Slider;
 
-public class OptionsWindowController extends BaseController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class OptionsWindowController extends BaseController implements Initializable {
 
     @FXML
     private
-    ChoiceBox<?> themePicker;
+    ChoiceBox<ColorTheme> themePicker;
 
     @FXML
     private Slider fontSizePicker;
@@ -28,5 +34,15 @@ public class OptionsWindowController extends BaseController {
 
     public OptionsWindowController(EmailManager emailManager, ViewFactory viewFactory, String fxmlName) {
         super(emailManager, viewFactory, fxmlName);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setUpThemePicker();
+    }
+
+    private void setUpThemePicker() {
+        themePicker.setItems(FXCollections.observableArrayList(ColorTheme.values()));
+        themePicker.setValue(viewFactory.getColorTheme());
     }
 }
